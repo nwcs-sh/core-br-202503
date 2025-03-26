@@ -13,11 +13,9 @@ import (
 // This program mimics a beaver family collecting sticks for the winter. The
 // family members go out individually on excursions and collect sticks. Upon
 // returning, they record the number of sticks they collected in the database.
-// Each excursion is recorded in the database with the following information: -
-// The ID of the excursion - The number of sticks collected.
-//
-// When deciding where to go on an excursion, each beaver chooses from the available
-// locations. Beavers should never try to go to the same location twice.
+// Each excursion is recorded in the database with the following information:
+//   - The ID of the excursion
+//   - The number of sticks collected.
 //
 // The family has found in the past that some excursions tend to take them far
 // away from home on multiday excursions. These will be recorded in the database
@@ -119,7 +117,8 @@ func (jq *JobQueue) Stop() {
 }
 
 // The main function here serves mainly as a demonstration/harness of the core functionality so that
-// we can run it and see it in action.
+// we can run it and see it in action. Don't worry too too much about reviewing this part unless you
+// really want to.
 func main() {
 	// Setup database connection. Don't worry about this and the implications of the hardcoded password,
 	// it's just for this example.
