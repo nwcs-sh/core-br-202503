@@ -1,0 +1,42 @@
+version: 2
+
+before:
+  hooks:
+    - go mod download
+    - go generate ./...
+
+builds:
+  - id: core-br
+    main: ./cmd/core-br/main.go
+    binary: core-br
+    env:
+    - CGO_ENABLED=0
+    mod_timestamp: '{{ .CommitTimestamp }}'
+    flags:
+      - -trimpath #removes all file system paths from the compiled executable
+    goos:
+      - linux
+    goarch:
+      - amd64
+
+archives:
+  - id: core-br
+    builds:
+      - core-br
+    formats: ["tar.gz"]
+    files:
+      - README*
+      - LICENSE*
+      - CHANGELOG*
+      - src: cmd/core-br/config.yaml
+        strip_parent: true
+    name_template: 'core-br'
+
+checksum:
+  name_template: 'checksums.txt'
+  algorithm: sha256
+  ids:
+    - core-br
+
+release:
+  draft: false
