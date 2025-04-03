@@ -19,13 +19,12 @@ Hey there, here's the code for the code review take-home. You've got a couple of
 
 
 ## Summary of changes
-- Add github actions to lint and build the code
-- Add goreleaser to build the application
-- Move main to `cmd/`
-- Move modules to `pkg/`
+- Add github actions to lint and build the project
+- Add `goreleaser` to build the application
+- Move main to `cmd/` and move modules to `pkg/` (following standard project layout https://github.com/golang-standards/project-layout)
 - Add `vendor` packages
 - Synchronize deps
 - Add `.gitignore`
 - Add configuration
-- Add structured logging
-- Add pprof
+- Add structured logging such as `slog` or `zap`
+- Add `pprof`; can be localhost listener or can catch signals
